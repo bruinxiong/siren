@@ -25,6 +25,9 @@ installing anything, and goes through the following experiments / SIREN properti
 * Distribution of activations is shift-invariant
 * Periodicity & behavior outside of the training range. 
 
+## Tensorflow Playground
+You can also play arond with a tiny SIREN interactively, directly in the browser, via the Tensorflow Playground [here](https://dcato98.github.io/playground/#activation=sine). Thanks to [David Cato](https://github.com/dcato98) for implementing this! 
+
 ## Get started
 If you want to reproduce all the results (including the baselines) shown in the paper, the videos, point clouds, and 
 audio files can be found [here](https://drive.google.com/drive/folders/1_iq__37-hw7FJOEUK1tX7mdp8SKB368K?usp=sharing).
@@ -106,6 +109,8 @@ and creates the mesh saved in a .ply file format. It can be called with:
 python experiments_scripts/test_single_sdf.py --checkpoint_path=<path_to_the_checkpoint_of_the_trained_model> --experiment_name=experiment_1_rec 
 ```
 This will save the .ply file as "reconstruction.ply" in "experiment_1_rec" (be patient, the marching cube meshing step takes some time ;) )
+In the event the machine you use for the reconstruction does not have enough RAM, running test_sdf script will likely freeze. If this is the case, 
+please use the option --resolution=512 in the command line above (set to 1600 by default) that will reconstruct the mesh at a lower spatial resolution.
 
 The .ply file can be visualized using a software such as [Meshlab](https://www.meshlab.net/#download) (a cross-platform visualizer and editor for 3D models).
 
